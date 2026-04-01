@@ -1,6 +1,6 @@
 {
   "name": "@gzkdev/emoticons",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A simple and fun npm library for ASCII emoticons.",
   "type": "module",
   "main": "./dist/index.cjs",
