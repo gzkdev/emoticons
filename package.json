@@ -45,9 +45,29 @@
   },
   "author": "gzkdev",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gzkdev/emoticons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gzkdev/emoticons/issues"
+  },
+  "homepage": "https://github.com/gzkdev/emoticons#readme",
+  "engines": {
+    "node": ">=14"
+  },
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "emoticons",
+    "ascii",
+    "faces",
+    "kaomoji",
+    "text",
+    "tags",
+    "npm-package"
+  ],
   "devDependencies": {
     "@changesets/cli": "^2.30.0",
     "@eslint/js": "^10.0.1",
