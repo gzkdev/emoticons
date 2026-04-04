@@ -29,19 +29,12 @@
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{ts,js,json,md}\"",
     "release": "pnpm build && pnpm exec changeset publish",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "docs:dev": "pnpm --filter emoticons-docs dev",
+    "docs:build": "pnpm build && pnpm --filter emoticons-docs build"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
-  },
-  "lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{js,json,md}": [
-      "prettier --write"
-    ]
   },
   "author": "gzkdev",
   "license": "MIT",
