@@ -39,7 +39,7 @@ export function getByTag(tag: string): Emoticon[] {
 }
 
 /**
- * Performs a search across tags and meaning text.
+ * Performs a search across id, value, tags, and meaning text.
  * @param query Search query text
  * @returns Emoticon[]
  */
@@ -48,6 +48,12 @@ export function search(query: string): Emoticon[] {
   if (!cleanQuery) return [];
 
   return emoticons.filter((e) => {
+    if (e.id.toLowerCase().includes(cleanQuery)) {
+      return true;
+    }
+    if (e.value.toLowerCase().includes(cleanQuery)) {
+      return true;
+    }
     if (e.meaning && e.meaning.toLowerCase().includes(cleanQuery)) {
       return true;
     }
@@ -56,6 +62,14 @@ export function search(query: string): Emoticon[] {
     }
     return false;
   });
+}
+
+/**
+ * Returns a single emoticon by its package id (e.g. "emo-0"), or undefined.
+ */
+export function getById(id: string): Emoticon | undefined {
+  const trimmed = id.trim();
+  return emoticons.find((e) => e.id === trimmed);
 }
 
 /**

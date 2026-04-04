@@ -5,6 +5,7 @@ import {
   getByTag,
   search,
   getAll,
+  getById,
   count,
 } from '../src/index.js';
 
@@ -17,8 +18,15 @@ describe('Emoticons Library', () => {
 
   it('should return a random object', () => {
     const obj = randomObject();
+    expect(obj).toHaveProperty('id');
+    expect(obj.id).toMatch(/^emo-\d+$/);
     expect(obj).toHaveProperty('value');
     expect(obj.value).toBeTypeOf('string');
+  });
+
+  it('getById should resolve known ids', () => {
+    expect(getById('emo-0')?.value).toBe(':‑)');
+    expect(getById('invalid')).toBeUndefined();
   });
 
   it('getAll should return the full array', () => {
@@ -33,6 +41,14 @@ describe('Emoticons Library', () => {
     // Assuming we have at least cool-ascii-faces that have 'face' in their tags/meaning
     expect(Array.isArray(results)).toBe(true);
     expect(results.length).toBeGreaterThan(0);
+
+    const byValue = search(':)');
+    expect(byValue.length).toBeGreaterThan(0);
+    expect(byValue.some((e) => e.value.includes(':)'))).toBe(true);
+
+    const byId = search('emo-0');
+    expect(byId.length).toBe(1);
+    expect(byId[0]?.id).toBe('emo-0');
 
     // Test empty search
     expect(search('')).toEqual([]);
