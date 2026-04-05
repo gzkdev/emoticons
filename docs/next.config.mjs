@@ -2,12 +2,13 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 
 const appDir = path.dirname(fileURLToPath(import.meta.url))
+const libraryRoot = path.resolve(appDir, "..")
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Prefer this app when another pnpm-lock.yaml exists at the repo root (avoids wrong Turbopack root on Vercel).
+  transpilePackages: ["@gzkdev/emoticons"],
   turbopack: {
-    root: appDir,
+    root: libraryRoot,
   },
 }
 
