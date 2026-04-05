@@ -18,12 +18,10 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     },
-    "noUncheckedSideEffectImports": false,
-    "ignoreDeprecations": "6.0"
+    "noUncheckedSideEffectImports": false
   },
   "include": [
     "next-env.d.ts",
