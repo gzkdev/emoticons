@@ -5,7 +5,7 @@ export interface Emoticon {
   tags?: string[];
 }
 
-const rawEmoticons: Omit<Emoticon, 'id'>[] = [
+const emoticonsMetadata: Omit<Emoticon, 'id'>[] = [
   {
     value: ':‑)',
     meaning: 'Smiley, happy face',
@@ -1031,7 +1031,7 @@ const rawEmoticons: Omit<Emoticon, 'id'>[] = [
   {
     value: '\\o/',
     meaning: 'Cheer "Yay, yay."',
-    tags: ['cheer', 'yay', 'yay'],
+    tags: ['cheer', 'yay'],
   },
   {
     value: '*\\0/*',
@@ -2791,7 +2791,9 @@ const rawEmoticons: Omit<Emoticon, 'id'>[] = [
   },
 ];
 
-export const emoticons: Emoticon[] = rawEmoticons.map((entry, index) => ({
-  id: `emo-${index}`,
-  ...entry,
-}));
+export const emoticons: Emoticon[] = emoticonsMetadata.map(
+  (metadata, index) => ({
+    id: `emo-${index}`,
+    ...metadata,
+  }),
+);
