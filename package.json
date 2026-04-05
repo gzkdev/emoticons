@@ -30,8 +30,8 @@
     "format": "prettier --write \"**/*.{ts,js,json,md}\"",
     "release": "pnpm build && pnpm exec changeset publish",
     "prepare": "simple-git-hooks",
-    "docs:dev": "pnpm --dir docs dev",
-    "docs:build": "pnpm --dir docs build"
+    "docs:dev": "pnpm --filter emoticons-docs dev",
+    "docs:build": "pnpm build && pnpm --filter emoticons-docs build"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
